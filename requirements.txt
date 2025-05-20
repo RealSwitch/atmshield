@@ -1,0 +1,5 @@
+pyudev
+watchdog
+psutil
+colorama
+flask
