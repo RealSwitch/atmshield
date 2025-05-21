@@ -3,3 +3,4 @@ watchdog
 psutil
 colorama
 flask
+psutil
