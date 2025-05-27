@@ -1,8 +1,15 @@
+from datetime import datetime
 import os
-import datetime
 
-LOG_FILE = os.path.join("logs", "events.log")
+LOG_DIR = "logs"
+LOG_FILE = os.path.join(LOG_DIR, "events.log")
 
-def log_event(message):
+os.makedirs(LOG_DIR, exist_ok=True)  # Ensure logs/ exists
+
+def log_event(message, level="INFO"):
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    entry = f"[{timestamp}] [{level}] {message}"
+    print(entry)
+
     with open(LOG_FILE, "a") as f:
-        f.write(f"{datetime.datetime.now()} - {message}\n")
+        f.write(entry + "\n")
